@@ -1,0 +1,18 @@
+Les panels N&S :
+	Profil : table user (Salariés qui gèrent l'application : role (admin ou user))
+
+	Propriétaire (CRUD des propiros)
+	
+	Appartements des proprios (CRUD des app)
+	
+	Clients (Select sur la BDD des clients implementer sur le client leger par inscription) 
+	
+	Réservations (CRUD Réservations)
+	
+	Contrats (CRUD Contrats)
+
+	Statistiques (Select des données staistiques voulues)
+
+
+
+	Quitter
