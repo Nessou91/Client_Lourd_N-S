@@ -14,5 +14,10 @@ public class Controleur {
 	}
 	return ok;
 	}
-    
+
+	/************************** Gestion des utilisateurs ************************/
+    public static void insertUser (User unUser) {
+
+		Controleur.insertUser(unUser);
+	}
 }

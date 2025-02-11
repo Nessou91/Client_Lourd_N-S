@@ -2,9 +2,18 @@ package Modele;
 
 import java.sql.*;
 
+import Controleur.User;
+
 public class Modele {
     /************************* Attributs ****************************/
     private static Connexion uneConnexion = new Connexion ("localhost:8889", "orange_cl_lm", "root", "root");
+
+    /********************* Gestion des utilisateurs **************************/
+
+    public static void insertUser (User unUser) {
+        String requete = "insert into user values (null, '" + unUser.getNom() + "', '" + unUser.getPrenom() + "', '" + unUser.getEmail() + "', '" + unUser.getMdp() + "')";
+        executerRequete(requete);
+    }
 
 
 

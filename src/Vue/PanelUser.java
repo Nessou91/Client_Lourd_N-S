@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -17,6 +18,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import Controleur.Controleur;
 import Controleur.Tableau;
 import Controleur.User;
 
@@ -203,6 +205,67 @@ public class PanelUser extends PanelPrincipal implements ActionListener, KeyList
         btValider.setText("Valider");
     }
 
+    public void actualiser (){
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //vider les champs et filtrer
+        if (e.getSource() == this.btAnnuler) {
+            this.viderChamps();
+        }else if (e.getSource() == this.btFiltrer) {
+            String filtre = this.txtFiltre.getText();
+            //on actualise l'affichage
+            this.tableauUser.setDonnees(this.obtenirDonnees(filtre));
+        }else if (e.getSource() == btValider && this.btValider.getText().equals("Valider")) {
+            this.valider();
+
+    
+    
+    
+    
+    
+    
+    public void valider () {
+        // Récupérer les données
+        String nom = this.txtNom.getText();
+        String prenom = this.txtPrenom.getText();
+        String adresse = this.txtAdresse.getText();
+        String email = this.txtEmail.getText();
+        String tel = this.txtTel.getText();
+        String ville = this.txtVille.getText();
+        int cp = Integer.parseInt(this.txtCp.getText());
+ 
+        ArrayList<String> lesChamps = new ArrayList<String>();
+        lesChamps.add(nom);
+        lesChamps.add(prenom);
+        lesChamps.add(adresse);
+        lesChamps.add(email);
+        lesChamps.add(tel);
+        lesChamps.add(ville);
+        lesChamps.add(String.valueOf(cp));
+
+        
+        if (Controleur.verifDonnees(lesChamps)) {
+            // Instancier utilisateur
+            User unUser = new User(cp, nom, prenom, adresse, email, tel, "1234", "client");
+ 
+            // Insérer utilisateur
+            Controleur.insertUser(unUser);
+ 
+            // Confirmer l'ajout
+            JOptionPane.showMessageDialog(this, "Client ajouté avec succès", "Information", JOptionPane.INFORMATION_MESSAGE);
+ 
+            // Actualiser l'affichage
+            this.tableauUser.setDonnees(this.obtenirDonnees(""));
+        } else {
+            JOptionPane.showMessageDialog(this, "Veuillez remplir tous les champs", "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
+    
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -218,10 +281,7 @@ public class PanelUser extends PanelPrincipal implements ActionListener, KeyList
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-    }
 
     
 
