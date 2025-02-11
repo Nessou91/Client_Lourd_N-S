@@ -190,6 +190,19 @@ public class PanelUser extends PanelPrincipal implements ActionListener, KeyList
         
     }
 
+    public void viderChamps () {
+        this.txtNom.setText("");
+        this.txtPrenom.setText("");
+        this.txtEmail.setText("");
+        this.txtAdresse.setText("");
+        this.txtVille.setText("");
+        this.txtCp.setText("");
+        this.txtTel.setText("");
+
+        btSupprimer.setVisible(false);
+        btValider.setText("Valider");
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 

@@ -41,5 +41,9 @@ public class Connexion {
         }
     }
 
+    public Connection getMaConnexion () {
+		return this.maConnexion; 
+	}
+
 
 }

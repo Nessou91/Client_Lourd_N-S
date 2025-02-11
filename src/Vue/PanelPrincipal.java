@@ -25,6 +25,8 @@ public abstract class PanelPrincipal extends JPanel {
         this.setLayout(null);
         this.setVisible(false);
     }
+
+    public abstract void actualiser();
 }
 
 
